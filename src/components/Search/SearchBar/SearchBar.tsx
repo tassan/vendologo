@@ -6,26 +6,15 @@ import {
     SearchBarTitle,
     SearchBarWrapper
 } from "@/components/Search/SearchBar/styles";
+import {Button} from "@nextui-org/react";
+import {LocationFilter} from "@/components/Filters/LocationFilter/LocationFilter";
 
 export function SearchBar() {
     return <SearchBarWrapper>
         <SearchBarTitle>Encontre aqui o seu novo lar</SearchBarTitle>
         <SearchBarForm>
-            <SearchBarLabel>Estado</SearchBarLabel>
-            <SearchBarInput type="text" placeholder="Digite o estado" />
+            <LocationFilter />
 
-            <SearchBarLabel>Cidade</SearchBarLabel>
-            <SearchBarInput type="text" placeholder="Digite a cidade" />
-
-            <SearchBarLabel>Região do Imóvel</SearchBarLabel>
-            <SearchBarCheckboxLabel>Rural</SearchBarCheckboxLabel>
-            <SearchBarCheckbox type="checkbox" placeholder="Rural" />
-            <SearchBarCheckboxLabel>Urbana</SearchBarCheckboxLabel>
-            <SearchBarCheckbox type="checkbox" placeholder="Urbana" />
-
-            <SearchBarSubmit type="submit" value="Buscar">
-                Buscar
-            </SearchBarSubmit>
         </SearchBarForm>
     </SearchBarWrapper>
 }
