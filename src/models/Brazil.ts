@@ -3,7 +3,7 @@ export type BrazilState = {
     uf: string;
 }
 
-export const brazilStates: BrazilState[] = [
+export const brazil: BrazilState[] = [
     { name: 'Acre', uf: 'AC' },
     { name: 'Alagoas', uf: 'AL' },
     { name: 'Amapá', uf: 'AP' },
