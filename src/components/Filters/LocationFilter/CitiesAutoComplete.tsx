@@ -1,14 +1,14 @@
 import React, {useEffect, useMemo, useState} from "react";
 import IbgeServices, {City} from "@/services/IBGE/ibge.services";
-import {Dropdown} from "@nextui-org/react";
+import {AutoComplete} from "antd";
 
-interface CitiesDropdownProps {
+interface CitiesAutoCompleteProps {
     state: string;
     selectedCity: string;
     setSelectedCity: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const CitiesDropdown = ({state, selectedCity, setSelectedCity}: CitiesDropdownProps) => {
+const CitiesAutoComplete = ({state, selectedCity, setSelectedCity}: CitiesAutoCompleteProps) => {
     const [cities, setCities] = useState<City[]>([]);
 
     const ibgeService = new IbgeServices();
@@ -29,17 +29,17 @@ const CitiesDropdown = ({state, selectedCity, setSelectedCity}: CitiesDropdownPr
         getCities();
     }, [state]);
 
-    return <Dropdown>
-        <Dropdown.Button light>{selectedCity && selectedCity}</Dropdown.Button>
-        <Dropdown.Menu
-            aria-label={"Selecione uma Cidade"}
-            onAction={(value) => handleCityChange(value as string)}
-        >
-            {cities && cities.map((city, index) => (
-                <Dropdown.Item key={city.nome} textValue={city.nome}>{city.nome}</Dropdown.Item>
-            ))}
-        </Dropdown.Menu>
-    </Dropdown>
+    return <>
+        <AutoComplete
+            style={{width: 250, padding: 10}}
+            options={cities.map(city => ({label: city.nome, value: city.nome}))}
+            placeholder="Digite o nome de uma Cidade"
+            filterOption={(inputValue, option) =>
+                option?.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+            }
+            onChange={handleCityChange}
+        />
+    </>
 }
 
-export default CitiesDropdown;
+export default CitiesAutoComplete;

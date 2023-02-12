@@ -1,6 +1,6 @@
 import {brazil, BrazilState} from "@/models/Brazil";
 import React, {useMemo} from "react";
-import {Dropdown} from "@nextui-org/react";
+import {Select, Space} from "antd";
 
 interface StateDropdownProps {
     selectedState: BrazilState;
@@ -21,15 +21,12 @@ export const StatesDropdown = ({selectedState, setSelectedState}: StateDropdownP
         console.log(selectedState);
     }, [selectedState])
 
-    return <Dropdown>
-        <Dropdown.Button light>{selectedState && selectedState.name}</Dropdown.Button>
-        <Dropdown.Menu
-            aria-label={"Selecione um Estado"}
-            onAction={(value) => handleStateChange(value as string)}
-        >
-            {brazil && brazil.map((state, index) => (
-                <Dropdown.Item key={state.uf} textValue={state.uf}>{state.name}</Dropdown.Item>
-            ))}
-        </Dropdown.Menu>
-    </Dropdown>
+    return <Space wrap>
+        <Select
+            defaultValue={selectedState && selectedState.name}
+            style={{width: 250}}
+            onChange={handleStateChange}
+            options={brazil.map(state => ({label: state.name, value: state.uf}))}
+        />
+    </Space>
 }

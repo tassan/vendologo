@@ -16,7 +16,12 @@ class IbgeServices {
             return [];
         }
 
-        return data;
+        let orderedData = data.sort((a: City, b: City) => {
+                return a.nome.localeCompare(b.nome);
+            }
+        );
+
+        return orderedData;
     }
 }
 
