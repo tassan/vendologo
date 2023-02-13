@@ -1,7 +1,7 @@
 import {Navbar} from "@/components/Navbar/Navbar";
 import {HomeContainer} from "@/styles/Home.styles";
 import Head from "next/head";
-import {SearchBar} from "@/components/Search/SearchBar/SearchBar";
+import {SearchEstateForm} from "@/components/Search/SearchEstateForm/SearchEstateForm";
 
 export default function Home() {
     return (
@@ -13,7 +13,7 @@ export default function Home() {
             </Head>
             <HomeContainer>
                 <Navbar/>
-                <SearchBar />
+                <SearchEstateForm />
             </HomeContainer>
         </>
     )
