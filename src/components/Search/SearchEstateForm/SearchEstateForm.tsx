@@ -1,12 +1,14 @@
-import {EstateLocationFilter} from "@/components/Filters/EstateLocation/EstateLocationFilter";
-import {Button, Col, Form, InputNumber, Radio, Row, Slider} from "antd";
+import {Button, Form} from "antd";
 import React from "react";
-import {EstateContractTypeFilter} from "@/components/Filters/EstateContractType/ContractTypeFilter";
-import {EstateAreaFilter} from "@/components/Filters/EstateArea/EstateAreaFilter";
-import {EstateTypeFilter} from "@/components/Filters/EstateType/EstateTypeFilter";
-import {EstateRegionFilter} from "@/components/Filters/EstateRegion/EstateRegionFilter";
-import {EstatePriceRangeFilter} from "@/components/Filters/EstatePriceRange/EstatePriceRangeFilter";
-import {EstateUtilitiesFilter} from "@/components/Filters/EstateUtilities/EstateUtilitiesFilter";
+import {
+    EstateAreaFilter,
+    EstateContractTypeFilter,
+    EstateLocationFilter,
+    EstatePriceRangeFilter,
+    EstateRegionFilter,
+    EstateTypeFilter,
+    EstateUtilitiesFilter
+} from "@/components/Filters";
 
 
 const SearchEstateButton = () => {
@@ -18,7 +20,7 @@ const SearchEstateButton = () => {
 }
 
 
-function SearchEstateForm() {
+export function SearchEstateForm() {
     return <Form
         layout="horizontal"
         style={{width: '100%'}}
@@ -31,8 +33,6 @@ function SearchEstateForm() {
         <EstatePriceRangeFilter/>
         <EstateAreaFilter/>
         <EstateUtilitiesFilter/>
-        <SearchEstateButton />
+        <SearchEstateButton/>
     </Form>
 }
-
-export default SearchEstateForm;

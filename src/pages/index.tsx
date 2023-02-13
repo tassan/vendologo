@@ -1,7 +1,9 @@
 import {Navbar} from "@/components/Navbar/Navbar";
 import {HomeContainer} from "@/styles/Home.styles";
 import Head from "next/head";
-import {SearchEstateForm} from "@/components/Search/SearchEstateForm/SearchEstateForm";
+import React from "react";
+import {SearchEstateForm} from "@/components/Search";
+
 
 export default function Home() {
     return (
