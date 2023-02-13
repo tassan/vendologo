@@ -27,7 +27,7 @@ const CitiesAutoComplete = ({state, selectedCity, setSelectedCity}: CitiesAutoCo
 
     useEffect(() => {
         getCities();
-    }, [state]);
+    }, [getCities, state]);
 
     return <>
         <AutoComplete
