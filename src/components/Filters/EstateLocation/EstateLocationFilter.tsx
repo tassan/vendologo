@@ -3,8 +3,7 @@ import {LocationFilterContainer} from "@/components/Filters/EstateLocation/style
 import React, {useState, lazy, Suspense} from "react";
 import {StatesDropdown} from "@/components/Filters/EstateLocation/components/StateDropdown";
 import {Form} from "antd";
-
-const CitiesAutoComplete = lazy(() => import('@/components/Filters/EstateLocation/components/CitiesAutoComplete'));
+import CitiesAutoComplete from "@/components/Filters/EstateLocation/components/CitiesAutoComplete";
 
 export function EstateLocationFilter() {
     const [selectedState, setSelectedState] = useState<BrazilState>({uf: 'N/A', name: 'Selecione um Estado'});
@@ -13,10 +12,8 @@ export function EstateLocationFilter() {
     return <Form.Item>
         <LocationFilterContainer>
             <StatesDropdown selectedState={selectedState} setSelectedState={setSelectedState}/>
-            <Suspense fallback={<div>Carregando...</div>}>
-                <CitiesAutoComplete state={selectedState.uf} selectedCity={selectedCity}
-                                    setSelectedCity={setSelectedCity}/>
-            </Suspense>
+            <CitiesAutoComplete state={selectedState.uf} selectedCity={selectedCity}
+                                setSelectedCity={setSelectedCity}/>
         </LocationFilterContainer>
     </Form.Item>
 }
