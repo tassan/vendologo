@@ -2,7 +2,7 @@ import {Navbar} from "@/components/Navbar/Navbar";
 import {HomeContainer} from "@/styles/Home.styles";
 import Head from "next/head";
 import React from "react";
-import {SearchEstateForm} from "@/components/Search";
+import {SearchForm} from "@/components/Search";
 
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
             </Head>
             <HomeContainer>
                 <Navbar/>
-                <SearchEstateForm />
+                <SearchForm />
             </HomeContainer>
         </>
     )

@@ -4,6 +4,7 @@ export type BrazilState = {
 }
 
 export const brazil: BrazilState[] = [
+    { name: 'Selecione o Estado', uf: 'N/A' },
     { name: 'Acre', uf: 'AC' },
     { name: 'Alagoas', uf: 'AL' },
     { name: 'Amapá', uf: 'AP' },

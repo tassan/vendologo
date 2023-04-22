@@ -5,3 +5,4 @@ export * from './EstatePriceRange/EstatePriceRangeFilter';
 export * from './EstateRegion/EstateRegionFilter';
 export * from './EstateType/EstateTypeFilter';
 export * from './EstateUtilities/EstateUtilitiesFilter';
+export * from './PriceFilter/PriceFilter';

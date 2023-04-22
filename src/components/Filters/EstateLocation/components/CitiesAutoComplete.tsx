@@ -6,9 +6,10 @@ interface CitiesAutoCompleteProps {
     state: string;
     selectedCity: string;
     setSelectedCity: React.Dispatch<React.SetStateAction<string>>;
+    enabled: boolean;
 }
 
-const CitiesAutoComplete = ({state, selectedCity, setSelectedCity}: CitiesAutoCompleteProps) => {
+const CitiesAutoComplete = ({state, selectedCity, setSelectedCity, enabled}: CitiesAutoCompleteProps) => {
     const [cities, setCities] = useState<City[]>([]);
 
     const ibgeService = new IbgeServices();
@@ -18,22 +19,25 @@ const CitiesAutoComplete = ({state, selectedCity, setSelectedCity}: CitiesAutoCo
         setSelectedCity(city);
     }
 
-    const getCities = () => {
-        if (!state || state === "N/A") return;
-        ibgeService.getCities(state).then(cities => {
-            setCities(cities);
-        })
-    }
+    let autoCompleteText = !enabled ? "Selecione um Estado" : 'Digite o nome de uma Cidade';
 
     useEffect(() => {
+        const getCities = () => {
+            if (!state || state === "N/A") return;
+            ibgeService.getCities(state).then(cities => {
+                setCities(cities);
+            })
+        }
+
         getCities();
-    }, [getCities, state]);
+    }, [state]);
 
     return <>
         <AutoComplete
+            disabled={!enabled}
             style={{width: 250, padding: 10}}
             options={cities.map(city => ({label: city.nome, value: city.nome}))}
-            placeholder="Digite o nome de uma Cidade"
+            placeholder={autoCompleteText}
             filterOption={(inputValue, option) =>
                 option?.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
             }
