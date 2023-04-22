@@ -11,7 +11,7 @@ export function Navbar() {
             <MenuItem>Anuncie seu imóvel</MenuItem>
             <MenuItem>Sobre</MenuItem>
             <MenuItem>Ajuda</MenuItem>
-            <MenuItem>Entrar</MenuItem>
+            <MenuItem href={"/api/auth/login"}>Entrar</MenuItem>
         </MenuContainer>
     </NavbarContainer>
   )
