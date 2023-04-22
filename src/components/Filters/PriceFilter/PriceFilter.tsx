@@ -38,7 +38,7 @@ return (
     <Form.Item name="price" label={title} noStyle>
         <Row>
             <Col span={12}>
-                <FormItemLabel prefixCls="ant-form" label={title}/>
+                <span>{title}</span>
             </Col>
         </Row>
         <Row>

@@ -1,4 +1,4 @@
-import {Form} from "antd";
+import {Button, Form} from "antd";
 import {PriceFilter} from "@/components/Filters";
 import {useEffect, useState} from "react";
 import {LocationFilter} from "@/components/Filters/LocationFilter/LocationFilter";
@@ -22,6 +22,7 @@ export function InitialFilter(props: InitialFilterProps) {
         <Form>
             <LocationFilter />
             <PriceFilter title={priceFilterTitle} minPrice={0} maxPrice={100000}/>
+            <Button size={'large'} type={'primary'}>Buscar</Button>
         </Form>
     )
 }

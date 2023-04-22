@@ -12,8 +12,6 @@ const CitiesAutoComplete = ({state, setSelectedCity, enabled}: CitiesAutoComplet
     const [cities, setCities] = useState<City[]>([]);
     const [autoCompleteText, setAutoCompleteText] = useState<string>('Selecione um Estado');
 
-    const ibgeService = new IbgeServices();
-
     const handleCityChange = (city: string) => {
         if (!city) return;
         setSelectedCity(city);
@@ -29,6 +27,8 @@ const CitiesAutoComplete = ({state, setSelectedCity, enabled}: CitiesAutoComplet
 
     useEffect(() => {
         const getCities = () => {
+            const ibgeService = new IbgeServices();
+
             if (!state || state === "N/A") return;
             ibgeService.getCities(state).then(cities => {
                 setCities(cities);
