@@ -10,9 +10,9 @@ export function Navbar() {
             <VendoLogoBrand />
         </LogoContainer>
         <MenuContainer>
-            <MenuItem>Anuncie seu imóvel</MenuItem>
-            <MenuItem>Sobre</MenuItem>
-            <MenuItem>Ajuda</MenuItem>
+            {/*<MenuItem>Anuncie seu imóvel</MenuItem>*/}
+            {/*<MenuItem>Sobre</MenuItem>*/}
+            {/*<MenuItem>Ajuda</MenuItem>*/}
             <Auth />
         </MenuContainer>
     </NavbarContainer>
