@@ -1,6 +1,5 @@
 import {Col, Form, InputNumber, Row, Slider} from "antd";
 import {useState} from "react";
-import FormItemLabel from "antd/es/form/FormItemLabel";
 import {SliderMarks} from "antd/es/slider";
 
 interface PriceFilterProps {
@@ -19,12 +18,6 @@ export function PriceFilter({title, minPrice = 0, maxPrice = 10000}: PriceFilter
     };
 
     const priceMarks: SliderMarks = {
-        // [2500] : {
-        //     label: <>R$ 2500</>,
-        // },
-        // [5000] : {
-        //     label: <>R$ 5000</>,
-        // },
         [minPrice]: {
             label: <>R$ {minPrice}</>,
         },
