@@ -4,13 +4,13 @@ import {AutoComplete} from "antd";
 
 interface CitiesAutoCompleteProps {
     state: string;
-    selectedCity: string;
     setSelectedCity: React.Dispatch<React.SetStateAction<string>>;
     enabled: boolean;
 }
 
-const CitiesAutoComplete = ({state, selectedCity, setSelectedCity, enabled}: CitiesAutoCompleteProps) => {
+const CitiesAutoComplete = ({state, setSelectedCity, enabled}: CitiesAutoCompleteProps) => {
     const [cities, setCities] = useState<City[]>([]);
+    const [autoCompleteText, setAutoCompleteText] = useState<string>('Selecione um Estado');
 
     const ibgeService = new IbgeServices();
 
@@ -19,7 +19,13 @@ const CitiesAutoComplete = ({state, selectedCity, setSelectedCity, enabled}: Cit
         setSelectedCity(city);
     }
 
-    let autoCompleteText = !enabled ? "Selecione um Estado" : 'Digite o nome de uma Cidade';
+    useEffect(() => {
+        if (enabled) {
+            setAutoCompleteText('Selecione uma Cidade');
+        } else {
+            setAutoCompleteText('Selecione um Estado');
+        }
+    }, [enabled]);
 
     useEffect(() => {
         const getCities = () => {
