@@ -1,5 +1,6 @@
 import {LogoContainer, MenuContainer, MenuItem, NavbarContainer} from "@/components/Navbar/styles";
 import VendoLogoBrand from "@/assets/vendologo.svg";
+import SignIn from "@/components/SignIn/SignIn";
 
 export function Navbar() {
     return (
@@ -11,7 +12,7 @@ export function Navbar() {
             <MenuItem>Anuncie seu imóvel</MenuItem>
             <MenuItem>Sobre</MenuItem>
             <MenuItem>Ajuda</MenuItem>
-            <MenuItem href={"/api/auth/login"}>Entrar</MenuItem>
+            <SignIn />
         </MenuContainer>
     </NavbarContainer>
   )
