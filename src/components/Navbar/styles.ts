@@ -34,10 +34,12 @@ export const LogoTypography = styled.h1`
 
 export const MenuContainer = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 35rem;
+
+  a {
+    margin-left: 1rem;
+  }
 `;
 
 export const MenuItem = styled.a`
