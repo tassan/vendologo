@@ -1,6 +1,6 @@
 import {useUser} from "@auth0/nextjs-auth0/client";
 import Head from "next/head";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import {Navbar} from "@/components/Navbar/Navbar";
 import {ProfileAlertsContainer, ProfileContainer} from "@/styles/Profile.styles";
 import {Alert, Button, Col, Image, Row} from "antd";
@@ -45,21 +45,21 @@ function Profile() {
         !!(name && email && picture && userType && email_verified);
 
 
-    const checkProfileComplete = async () => {
+    const checkProfileComplete = useCallback(async () => {
         try {
             const userProfile = await fetchUserProfile();
             setIsProfileComplete(isProfileCompleteFn(userProfile));
         } catch (error) {
             console.error("Error checking profile completeness:", error);
         }
-    };
+    }, []);
 
     useEffect(() => {
         if (user) {
             checkProfileComplete().then(r =>
                 console.log("Profile complete:", isProfileComplete));
         }
-    }, [user]);
+    }, [checkProfileComplete, isProfileComplete, user]);
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
